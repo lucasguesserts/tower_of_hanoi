@@ -14,6 +14,8 @@ char logFilePath[400];
 void Test_initialize_tower_of_hanoi(CuTest *tc);
 void Test_check_game_over(CuTest *tc);
 void Test_check_false_game_over(CuTest *tc);
+void Test_move_disk(CuTest *tc);
+void Test_move_disk_errors(CuTest *tc);
 
 int main(void)
 {
@@ -41,6 +43,8 @@ CuSuite* StrUtilGetSuite(void)
 	SUITE_ADD_TEST(suite, Test_initialize_tower_of_hanoi);
 	SUITE_ADD_TEST(suite, Test_check_game_over);
 	SUITE_ADD_TEST(suite, Test_check_false_game_over);
+	SUITE_ADD_TEST(suite, Test_move_disk);
+	SUITE_ADD_TEST(suite, Test_move_disk_errors);
 	return suite;
 }
 
@@ -98,7 +102,7 @@ void Test_check_false_game_over(CuTest *tc)
 	/* Auxiliar variables */
 	unsigned int d, r;
 	/* Initialize finished tower of hanoi */
-	TowerOfHanoi th;
+	TowerOfHanoi th, trueOutOfPlace, falseOutOfPlace;
 	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
 	for (d=0 ; d<NUMBER_OF_DISKS ; ++d)
 	{
@@ -108,12 +112,47 @@ void Test_check_false_game_over(CuTest *tc)
 	}
 	/* Tests */
 	/* One true out of place*/
-	TowerOfHanoi trueOutOfPlace = th;
+	trueOutOfPlace = th;
 	trueOutOfPlace.position[0][0] = true;
 	CuAssertTrue(tc, checkFinishedTowerOfHanoi(&trueOutOfPlace)==false);
 	/* One false out of place*/
-	TowerOfHanoi falseOutOfPlace = th;
+	falseOutOfPlace = th;
 	falseOutOfPlace.position[2][NUMBER_OF_RODS-1] = false;
 	CuAssertTrue(tc, checkFinishedTowerOfHanoi(&falseOutOfPlace)==false);
+	return;
+}
+
+void Test_move_disk(CuTest *tc)
+{
+	/* Initialize tower of hanoi */
+	TowerOfHanoi th;
+	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
+	/* Disk 0 from rod 0 to rod 1 */
+	moveDisk(&th, 0, 1);
+	CuAssertIntEquals(tc, false, th.position[0][0]);
+	CuAssertIntEquals(tc, true , th.position[0][1]);
+	/* Disk 1 from rod 0 to rod 2 */
+	moveDisk(&th, 1, 2);
+	CuAssertIntEquals(tc, false, th.position[1][0]);
+	CuAssertIntEquals(tc, true , th.position[1][2]);
+	/* Disk 0 from rod 1 to rod 2 */
+	moveDisk(&th, 0, 2);
+	CuAssertIntEquals(tc, false, th.position[0][1]);
+	CuAssertIntEquals(tc, true , th.position[0][2]);
+	return;
+}
+
+void Test_move_disk_errors(CuTest *tc)
+{
+	/* Initialize tower of hanoi */
+	TowerOfHanoi th;
+	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
+	/* Attempt to move and check errors */
+	CuAssertIntEquals(tc, valid_move,              moveDisk(&th, 0, 1));
+	CuAssertIntEquals(tc, no_move_done_error,      moveDisk(&th, 0, 1));
+	CuAssertIntEquals(tc, disk_not_on_top_error,   moveDisk(&th, 3, 1));
+	CuAssertIntEquals(tc, invalid_disk_error,      moveDisk(&th, 9, 1));
+	CuAssertIntEquals(tc, invalid_rod_error,  moveDisk(&th, 0, 6));
+	CuAssertIntEquals(tc, over_smaller_disk_error, moveDisk(&th, 1, 1));
 	return;
 }
