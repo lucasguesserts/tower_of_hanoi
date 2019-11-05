@@ -15,5 +15,6 @@ typedef struct
 } TowerOfHanoi;
 
 void initializeTowerOfHanoi(const unsigned int numberOfDisks, const unsigned int numberOfRods, TowerOfHanoi *th);
+bool checkFinishedTowerOfHanoi(const TowerOfHanoi * const th);
 
 #endif /* TOWER_OF_HANOI_H */

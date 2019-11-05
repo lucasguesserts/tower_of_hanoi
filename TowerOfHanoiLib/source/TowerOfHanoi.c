@@ -19,3 +19,16 @@ void initializeTowerOfHanoi(const unsigned int numberOfDisks, const unsigned int
 	}
 	return;
 }
+
+bool checkFinishedTowerOfHanoi(const TowerOfHanoi * const th)
+{
+	bool gameOver = true;
+	unsigned int d, r;
+	for (d=0 ; d<th->numberOfDisks ; ++d)
+	{
+		for (r=0 ; r<(th->numberOfRods-1) ; ++r)
+			gameOver = gameOver && (th->position[d][r]==false);
+		gameOver = gameOver && (th->position[d][th->numberOfRods-1]==true);
+	}
+	return gameOver;
+}
