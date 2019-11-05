@@ -1,4 +1,5 @@
 #include <CuTest.h>
+#include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include <TowerOfHanoi.h>
@@ -16,6 +17,7 @@ void Test_check_game_over(CuTest *tc);
 void Test_check_false_game_over(CuTest *tc);
 void Test_move_disk(CuTest *tc);
 void Test_move_disk_errors(CuTest *tc);
+void Test_display_tower_of_hanoi(CuTest *tc);
 
 int main(void)
 {
@@ -45,6 +47,7 @@ CuSuite* StrUtilGetSuite(void)
 	SUITE_ADD_TEST(suite, Test_check_false_game_over);
 	SUITE_ADD_TEST(suite, Test_move_disk);
 	SUITE_ADD_TEST(suite, Test_move_disk_errors);
+	SUITE_ADD_TEST(suite, Test_display_tower_of_hanoi);
 	return suite;
 }
 
@@ -159,4 +162,31 @@ void Test_move_disk_errors(CuTest *tc)
 	CuAssertIntEquals(tc, over_smaller_disk_error, moveDisk(&th, 1, 1));
 	CuAssertIntEquals(tc, 1,                       th.numberOfMoves);
 	return;
+}
+
+void Test_display_tower_of_hanoi(CuTest *tc)
+{
+	/* Auxiliar */
+	char *buffer = NULL;
+	size_t size = 0;
+	FILE *fp;
+	/* Initialize tower of hanoi */
+	TowerOfHanoi th;
+	char *asString = NULL;
+	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
+	/* Read file content into char array 'buffer' */
+	fp = fopen("../TowerOfHanoiLibTest/source/display_tower_of_hanoi.txt", "r");
+	fseek(fp, 0, SEEK_END);
+	size = ftell(fp);
+	rewind(fp);
+	buffer = (char *)(malloc((size + 1) * sizeof(*buffer)));
+	fread(buffer, size, 1, fp);
+	buffer[size] = '\0';
+	/* Check */
+	asString = displayTowerOfHanoi(&th);
+	CuAssertStrEquals(tc, buffer, asString);
+	/* Free memory */
+	fclose(fp);
+	free(buffer);
+	free(asString);
 }

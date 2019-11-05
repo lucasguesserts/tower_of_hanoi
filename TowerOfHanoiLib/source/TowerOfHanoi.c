@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <TowerOfHanoi.h>
+#include <stdlib.h>
+#include <string.h>
 
 /* ----- Functions for implementing 'moveDisk' ---- */
 unsigned int findDisk(const TowerOfHanoi * const th, const unsigned int disk);
@@ -103,3 +105,32 @@ bool overSmallerDisk(const TowerOfHanoi * const th, const unsigned int disk, con
 }
 
 /* ---------- */
+
+char * displayTowerOfHanoi(const TowerOfHanoi * const th)
+{
+	char *asString = NULL;
+	size_t numberOfCharacters;
+	unsigned int d, r;
+	char movesAsString[5];
+	/* Allocate memory */
+	numberOfCharacters = (2*th->numberOfRods + 2) * th->numberOfDisks + 22;
+	asString = (char *)(malloc((numberOfCharacters + 1) * sizeof(*asString)));
+	for (d=0 ; d<numberOfCharacters + 1 ; ++d)
+		asString[d] = '\0';
+	/* String representation */
+	for (d=0 ; d<th->numberOfDisks ; ++d)
+	{
+		for (r=0 ; r<th->numberOfRods ; ++r)
+		{
+			if (th->position[d][r])
+				strcat(asString, "X ");
+			else
+				strcat(asString, "- ");
+		}
+		strcat(asString, "\n");
+	}
+	strcat(asString, "Number of moves: ");
+	sprintf(movesAsString, "%3i\n", th->numberOfMoves);
+	strcat(asString, movesAsString);
+	return asString;
+}
