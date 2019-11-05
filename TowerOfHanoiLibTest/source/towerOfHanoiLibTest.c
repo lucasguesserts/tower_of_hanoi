@@ -11,7 +11,7 @@ CuSuite* StrUtilGetSuite(void);
 char logFilePath[400];
 
 /* ---------- Declare here your tests ---------- */
-void Test_tower_of_hanoi_structure(CuTest *tc);
+void Test_initialize_tower_of_hanoi(CuTest *tc);
 
 int main(void)
 {
@@ -36,7 +36,7 @@ CuSuite* StrUtilGetSuite(void)
 {
 	CuSuite* suite = CuSuiteNew();
 	/* --- Add here all your tests --- */
-	SUITE_ADD_TEST(suite, Test_tower_of_hanoi_structure);
+	SUITE_ADD_TEST(suite, Test_initialize_tower_of_hanoi);
 	return suite;
 }
 

@@ -11,11 +11,11 @@ void initializeTowerOfHanoi(const unsigned int numberOfDisks, const unsigned int
 	th->numberOfDisks = numberOfDisks;
 	th->numberOfRods = numberOfRods;
 	th->numberOfMoves = 0u;
-	for(r=0 ; r<numberOfRods ; ++r)
+	for (d=0 ; d<numberOfDisks ; ++d)
 	{
-		th->position[r][0] = true;
-		for (d=1 ; d<numberOfDisks ; ++d)
-			th->position[r][d] = false;
+		th->position[d][0] = true;
+		for(r=1 ; r<numberOfRods ; ++r)
+			th->position[d][r] = false;
 	}
 	return;
 }
