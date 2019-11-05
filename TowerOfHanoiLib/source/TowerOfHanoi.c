@@ -106,7 +106,7 @@ bool overSmallerDisk(const TowerOfHanoi * const th, const unsigned int disk, con
 
 /* ---------- */
 
-char * displayTowerOfHanoi(const TowerOfHanoi * const th)
+char * towerOfHanoi2string(const TowerOfHanoi * const th)
 {
 	char *asString = NULL;
 	size_t numberOfCharacters;

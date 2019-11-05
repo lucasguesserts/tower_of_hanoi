@@ -174,7 +174,7 @@ void Test_display_tower_of_hanoi(CuTest *tc)
 	char *asString = NULL;
 	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
 	/* Check */
-	asString = displayTowerOfHanoi(&th);
+	asString = towerOfHanoi2string(&th);
 	CuAssertStrEquals(tc, buffer, asString);
 	/* Free memory */
 	free(asString);
