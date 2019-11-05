@@ -1,6 +1,6 @@
 #include <CuTest.h>
 #include <string.h>
-#include <hello.h>
+#include <stdio.h>
 
 #ifndef LOG_OUTPUT
 #define LOG_OUTPUT "./"
@@ -11,7 +11,6 @@
 /* Add your test functions in the function 'StrUtilGetSuite' function. */
 
 void Test_CuTest(CuTest *tc);
-void Test_hello(CuTest *tc);
 
 /* Suite which runs all the tests. */
 CuSuite* StrUtilGetSuite(void);
@@ -43,7 +42,6 @@ CuSuite* StrUtilGetSuite(void)
 	CuSuite* suite = CuSuiteNew();
 	/* --- Add here all your tests --- */
 	SUITE_ADD_TEST(suite, Test_CuTest);
-	SUITE_ADD_TEST(suite, Test_hello);
 	return suite;
 }
 
@@ -54,12 +52,5 @@ void Test_CuTest(CuTest *tc)
 	int actual   = 1;
 	int expected = actual;
 	CuAssertIntEquals(tc, expected, actual);
-	return;
-}
-
-void Test_hello(CuTest *tc)
-{
-	hello();
-	CuAssertTrue(tc, 1);
 	return;
 }
