@@ -113,7 +113,7 @@ char * displayTowerOfHanoi(const TowerOfHanoi * const th)
 	unsigned int d, r;
 	char movesAsString[5];
 	/* Allocate memory */
-	numberOfCharacters = (2*th->numberOfRods + 2) * th->numberOfDisks + 22;
+	numberOfCharacters = (2*th->numberOfRods + 1) * th->numberOfDisks + 22;
 	asString = (char *)(malloc((numberOfCharacters + 1) * sizeof(*asString)));
 	for (d=0 ; d<numberOfCharacters + 1 ; ++d)
 		asString[d] = '\0';
@@ -129,7 +129,7 @@ char * displayTowerOfHanoi(const TowerOfHanoi * const th)
 		}
 		strcat(asString, "\n");
 	}
-	strcat(asString, "Number of moves: ");
+	strcat(asString, "number of moves: ");
 	sprintf(movesAsString, "%3i\n", th->numberOfMoves);
 	strcat(asString, movesAsString);
 	return asString;

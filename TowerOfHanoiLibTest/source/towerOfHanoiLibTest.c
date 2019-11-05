@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <TowerOfHanoi.h>
+#include <unistd.h>
 
 #ifndef LOG_OUTPUT
 #define LOG_OUTPUT "./"
@@ -167,26 +168,15 @@ void Test_move_disk_errors(CuTest *tc)
 void Test_display_tower_of_hanoi(CuTest *tc)
 {
 	/* Auxiliar */
-	char *buffer = NULL;
-	size_t size = 0;
-	FILE *fp;
+	char buffer[] = "X - - \nX - - \nX - - \nX - - \nX - - \nnumber of moves:   0\n";
 	/* Initialize tower of hanoi */
 	TowerOfHanoi th;
 	char *asString = NULL;
 	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
-	/* Read file content into char array 'buffer' */
-	fp = fopen("../TowerOfHanoiLibTest/source/display_tower_of_hanoi.txt", "r");
-	fseek(fp, 0, SEEK_END);
-	size = ftell(fp);
-	rewind(fp);
-	buffer = (char *)(malloc((size + 1) * sizeof(*buffer)));
-	fread(buffer, size, 1, fp);
-	buffer[size] = '\0';
 	/* Check */
 	asString = displayTowerOfHanoi(&th);
 	CuAssertStrEquals(tc, buffer, asString);
 	/* Free memory */
-	fclose(fp);
-	free(buffer);
 	free(asString);
+	return;
 }
