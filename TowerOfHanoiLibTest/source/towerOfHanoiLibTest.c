@@ -152,7 +152,7 @@ void Test_move_disk_errors(CuTest *tc)
 	CuAssertIntEquals(tc, no_move_done_error,      moveDisk(&th, 0, 1));
 	CuAssertIntEquals(tc, disk_not_on_top_error,   moveDisk(&th, 3, 1));
 	CuAssertIntEquals(tc, invalid_disk_error,      moveDisk(&th, 9, 1));
-	CuAssertIntEquals(tc, invalid_rod_error,  moveDisk(&th, 0, 6));
+	CuAssertIntEquals(tc, invalid_rod_error,       moveDisk(&th, 0, 6));
 	CuAssertIntEquals(tc, over_smaller_disk_error, moveDisk(&th, 1, 1));
 	return;
 }

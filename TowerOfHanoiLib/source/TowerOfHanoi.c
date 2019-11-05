@@ -79,7 +79,7 @@ bool diskOnTopOfStack(const TowerOfHanoi * const th, const unsigned int disk)
 	unsigned int d, rod;
 	rod = findDisk(th, disk);
 	bool isOnTop = true;
-	for (d=0 ; d<disk-1 ; ++d)
+	for (d=0 ; d<disk ; ++d)
 		if (th->position[d][rod])
 		{
 			isOnTop = false;
@@ -91,11 +91,11 @@ bool diskOnTopOfStack(const TowerOfHanoi * const th, const unsigned int disk)
 bool overSmallerDisk(const TowerOfHanoi * const th, const unsigned int disk, const unsigned int rodDestination)
 {
 	unsigned d;
-	bool isThereSmaller = true;
-	for (d=0 ; d<disk-1 ; ++d)
+	bool isThereSmaller = false;
+	for (d=0 ; d<disk ; ++d)
 		if (th->position[d][rodDestination])
 		{
-			isThereSmaller = false;
+			isThereSmaller = true;
 			break;
 		}
 	return isThereSmaller;
