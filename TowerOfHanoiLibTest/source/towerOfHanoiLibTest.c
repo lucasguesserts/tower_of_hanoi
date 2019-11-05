@@ -131,14 +131,17 @@ void Test_move_disk(CuTest *tc)
 	moveDisk(&th, 0, 1);
 	CuAssertIntEquals(tc, false, th.position[0][0]);
 	CuAssertIntEquals(tc, true , th.position[0][1]);
+	CuAssertIntEquals(tc, 1,     th.numberOfMoves);
 	/* Disk 1 from rod 0 to rod 2 */
 	moveDisk(&th, 1, 2);
 	CuAssertIntEquals(tc, false, th.position[1][0]);
 	CuAssertIntEquals(tc, true , th.position[1][2]);
+	CuAssertIntEquals(tc, 2,     th.numberOfMoves);
 	/* Disk 0 from rod 1 to rod 2 */
 	moveDisk(&th, 0, 2);
 	CuAssertIntEquals(tc, false, th.position[0][1]);
 	CuAssertIntEquals(tc, true , th.position[0][2]);
+	CuAssertIntEquals(tc, 3,     th.numberOfMoves);
 	return;
 }
 
@@ -154,5 +157,6 @@ void Test_move_disk_errors(CuTest *tc)
 	CuAssertIntEquals(tc, invalid_disk_error,      moveDisk(&th, 9, 1));
 	CuAssertIntEquals(tc, invalid_rod_error,       moveDisk(&th, 0, 6));
 	CuAssertIntEquals(tc, over_smaller_disk_error, moveDisk(&th, 1, 1));
+	CuAssertIntEquals(tc, 1,                       th.numberOfMoves);
 	return;
 }

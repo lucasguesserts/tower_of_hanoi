@@ -59,6 +59,7 @@ moveError moveDisk(TowerOfHanoi * const th, const unsigned int diskToMove, const
 		for (r=0 ; r<th->numberOfRods ; ++r)
 			th->position[diskToMove][r] = false;
 		th->position[diskToMove][rodDestination] = true;
+		th->numberOfMoves++;
 	}
 	return returnCode;
 }
