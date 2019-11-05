@@ -14,5 +14,6 @@ typedef struct
     bool position[MAX_NUMBER_OF_DISKS][MAX_NUMBER_OF_RODS];
 } TowerOfHanoi;
 
+void initializeTowerOfHanoi(const unsigned int numberOfDisks, const unsigned int numberOfRods, TowerOfHanoi *th);
 
 #endif /* TOWER_OF_HANOI_H */

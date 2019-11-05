@@ -42,14 +42,15 @@ CuSuite* StrUtilGetSuite(void)
 
 /* ---------- Implement here your tests ---------- */
 
+#define NUMBER_OF_DISKS 5u
+#define NUMBER_OF_RODS  3u
+
 void Test_tower_of_hanoi_structure(CuTest *tc)
 {
 	/* Auxiliar variables */
 	unsigned int d, r;
 	/* Initialize values */
-	#define NUMBER_OF_DISKS 5u
-	#define NUMBER_OF_RODS  MAX_NUMBER_OF_RODS
-	#define NUMBER_OF_MOVES 2u
+	const unsigned int numberOfMoves = 2u;
 	bool position[NUMBER_OF_DISKS][NUMBER_OF_RODS] =
 	{
 		{true,  false, false},
@@ -65,11 +66,37 @@ void Test_tower_of_hanoi_structure(CuTest *tc)
 	for(d=0 ; d<NUMBER_OF_DISKS ; ++d)
 		for(r=0 ; r<NUMBER_OF_RODS ; ++r)
 			th.position[d][r] = position[d][r];
-	th.numberOfMoves = NUMBER_OF_MOVES;
+	th.numberOfMoves = numberOfMoves;
 	/* Test */
 	CuAssertIntEquals(tc, NUMBER_OF_RODS,  th.numberOfRods);
 	CuAssertIntEquals(tc, NUMBER_OF_DISKS, th.numberOfDisks);
-	CuAssertIntEquals(tc, NUMBER_OF_MOVES, th.numberOfMoves);
+	CuAssertIntEquals(tc, numberOfMoves, th.numberOfMoves);
+	for(d=0 ; d<NUMBER_OF_DISKS ; ++d)
+		for(r=0 ; r<NUMBER_OF_RODS ; ++r)
+			CuAssertIntEquals(tc, position[d][r], th.position[d][r]);
+	return;
+}
+
+void Test_initialize_tower_of_hanoi(CuTest *tc)
+{
+	/* Auxiliar variables */
+	unsigned int d, r;
+	/* Initialize values */
+	bool position[NUMBER_OF_DISKS][NUMBER_OF_RODS] =
+	{
+		{true, false, false},
+		{true, false, false},
+		{true, false, false},
+		{true, false, false},
+		{true, false, false},
+	};
+	/* Initialize tower of hanoi */
+	TowerOfHanoi th;
+	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
+	/* Test */
+	CuAssertIntEquals(tc, NUMBER_OF_RODS,  th.numberOfRods);
+	CuAssertIntEquals(tc, NUMBER_OF_DISKS, th.numberOfDisks);
+	CuAssertIntEquals(tc, 0u,              th.numberOfMoves);
 	for(d=0 ; d<NUMBER_OF_DISKS ; ++d)
 		for(r=0 ; r<NUMBER_OF_RODS ; ++r)
 			CuAssertIntEquals(tc, position[d][r], th.position[d][r]);
