@@ -9,7 +9,7 @@ int main(void)
 	TowerOfHanoi th;
 	const unsigned numberOfDisks = 3, numberOfRods = 3;
 	unsigned diskToMove, targetRod;
-	moveError moveRet;
+	MoveError moveRet;
 	char *asString;
 	initializeTowerOfHanoi(&th, numberOfDisks, numberOfRods);
 	system("clear");

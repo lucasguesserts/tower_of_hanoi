@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 void moveSubTower(TowerOfHanoi * const th, const unsigned currentRod, const unsigned biggestDisk, const unsigned targetRod);
-void displayMessage(moveError moveRet, TowerOfHanoi * const th);
+void displayMessage(MoveError moveRet, TowerOfHanoi * const th);
 
 int main(void)
 {
@@ -22,7 +22,7 @@ int main(void)
 
 void moveSubTower(TowerOfHanoi * const th, const unsigned currentRod, const unsigned biggestDisk, const unsigned targetRod)
 {
-	moveError moveRet;
+	MoveError moveRet;
 	if (biggestDisk==0)
 	{
 		moveRet = moveDisk(th, biggestDisk, targetRod);
@@ -38,7 +38,7 @@ void moveSubTower(TowerOfHanoi * const th, const unsigned currentRod, const unsi
 	return;
 }
 
-void displayMessage(moveError moveRet, TowerOfHanoi * const th)
+void displayMessage(MoveError moveRet, TowerOfHanoi * const th)
 {
 	char *asString;
 	asString = towerOfHanoi2string(th);

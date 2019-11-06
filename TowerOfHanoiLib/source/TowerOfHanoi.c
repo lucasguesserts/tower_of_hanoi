@@ -41,10 +41,10 @@ bool gameOverTowerOfHanoi(const TowerOfHanoi * const th)
 	return gameOver;
 }
 
-moveError moveDisk(TowerOfHanoi * const th, const unsigned diskToMove, const unsigned targetRod)
+MoveError moveDisk(TowerOfHanoi * const th, const unsigned diskToMove, const unsigned targetRod)
 {
 	unsigned r;
-	moveError returnCode;
+	MoveError returnCode;
 	if ( diskToMove > th->numberOfDisks)
 		returnCode = invalid_disk_error;
 	else if (targetRod > th->numberOfRods)

@@ -14,7 +14,7 @@ typedef struct
     bool     position[MAX_NUMBER_OF_DISKS][MAX_NUMBER_OF_RODS];
 } TowerOfHanoi;
 
-typedef enum MoveError
+typedef enum MOVE_ERROR
 {
     valid_move,
     invalid_disk_error,
@@ -22,11 +22,11 @@ typedef enum MoveError
     disk_not_on_top_error,
     over_smaller_disk_error,
     no_move_done_error
-} moveError;
+} MoveError;
 
 void      initializeTowerOfHanoi(TowerOfHanoi * const th, const unsigned numberOfDisks, const unsigned numberOfRods);
 bool      gameOverTowerOfHanoi(const TowerOfHanoi * const th);
-moveError moveDisk(TowerOfHanoi * const th, const unsigned diskToMove, const unsigned targetRod);
+MoveError moveDisk(TowerOfHanoi * const th, const unsigned diskToMove, const unsigned targetRod);
 char *    towerOfHanoi2string(const TowerOfHanoi * const th);
 
 #endif /* TOWER_OF_HANOI_H */
