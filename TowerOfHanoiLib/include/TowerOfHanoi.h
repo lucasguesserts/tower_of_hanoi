@@ -3,7 +3,7 @@
 
 #include <stdbool.h>
 
-#define MAX_NUMBER_OF_RODS 3u
+#define MAX_NUMBER_OF_RODS  3u
 #define MAX_NUMBER_OF_DISKS 9u
 #define MAX_NUMBER_OF_CHARS (2*MAX_NUMBER_OF_RODS + 2) * (MAX_NUMBER_OF_DISKS+1) + 22
 

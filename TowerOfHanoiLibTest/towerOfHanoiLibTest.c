@@ -62,6 +62,8 @@ void Test_initialize_tower_of_hanoi(CuTest *tc)
 	/* Auxiliar variables */
 	unsigned d, r;
 	/* Initialize values */
+	TowerOfHanoi th;
+	char asString[MAX_NUMBER_OF_CHARS];
 	bool position[NUMBER_OF_DISKS][NUMBER_OF_RODS] =
 	{
 		{true, false, false},
@@ -70,8 +72,9 @@ void Test_initialize_tower_of_hanoi(CuTest *tc)
 		{true, false, false},
 		{true, false, false},
 	};
+	for (d=0 ; d<MAX_NUMBER_OF_CHARS ; ++d)
+		asString[d] = '\0';
 	/* Initialize tower of hanoi */
-	TowerOfHanoi th;
 	initializeTowerOfHanoi(&th, NUMBER_OF_DISKS, NUMBER_OF_RODS);
 	/* Test */
 	CuAssertIntEquals(tc, NUMBER_OF_RODS,  th.numberOfRods);
@@ -80,6 +83,7 @@ void Test_initialize_tower_of_hanoi(CuTest *tc)
 	for(d=0 ; d<NUMBER_OF_DISKS ; ++d)
 		for(r=0 ; r<NUMBER_OF_RODS ; ++r)
 			CuAssertIntEquals(tc, position[d][r], th.position[d][r]);
+	CuAssertStrEquals(tc, asString, th.asString);
 	return;
 }
 
