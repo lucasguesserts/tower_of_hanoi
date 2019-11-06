@@ -80,8 +80,8 @@ unsigned int findDisk(const TowerOfHanoi * const th, const unsigned int disk)
 bool diskOnTopOfStack(const TowerOfHanoi * const th, const unsigned int disk)
 {
 	unsigned int d, rod;
-	rod = findDisk(th, disk);
 	bool isOnTop = true;
+	rod = findDisk(th, disk);
 	for (d=0 ; d<disk ; ++d)
 		if (th->position[d][rod])
 		{

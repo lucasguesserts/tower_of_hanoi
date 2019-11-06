@@ -10,12 +10,15 @@ int main(void)
 	const unsigned int numberOfDisks = 3, numberOfRods = 3;
 	unsigned int diskToMove, rodDestination;
 	moveError moveRet;
+	char *asString;
 	initializeTowerOfHanoi(numberOfDisks, numberOfRods, &th);
 	system("clear");
 
 	while(!checkFinishedTowerOfHanoi(&th))
 	{
-		printf(towerOfHanoi2string(&th));
+		asString = towerOfHanoi2string(&th);
+		printf("%s", asString);
+		free(asString);
 		diskToMove = getInt("Select a disk to move");
 		rodDestination = getInt("Select a rod to move it into");
 		moveRet = moveDisk(&th, diskToMove, rodDestination);

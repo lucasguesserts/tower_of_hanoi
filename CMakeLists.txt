@@ -1,6 +1,6 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.14)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.13)
 
-set(CMAKE_C_COMPILER "x86_64-conda_cos6-linux-gnu-gcc")
+set(CMAKE_C_COMPILER "gcc")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -Wextra -ansi -pedantic -lm")
 
 set(LOG_DIR "${CMAKE_BINARY_DIR}/log/")
