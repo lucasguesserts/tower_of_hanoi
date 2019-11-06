@@ -26,7 +26,7 @@ typedef enum MoveError
 
 void      initializeTowerOfHanoi(TowerOfHanoi * const th, const unsigned numberOfDisks, const unsigned numberOfRods);
 bool      gameOverTowerOfHanoi(const TowerOfHanoi * const th);
-moveError moveDisk(TowerOfHanoi * const th, const unsigned diskToMove, const unsigned rodDestination);
+moveError moveDisk(TowerOfHanoi * const th, const unsigned diskToMove, const unsigned targetRod);
 char *    towerOfHanoi2string(const TowerOfHanoi * const th);
 
 #endif /* TOWER_OF_HANOI_H */

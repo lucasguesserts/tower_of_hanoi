@@ -8,7 +8,7 @@ int main(void)
 {
 	TowerOfHanoi th;
 	const unsigned numberOfDisks = 3, numberOfRods = 3;
-	unsigned diskToMove, rodDestination;
+	unsigned diskToMove, targetRod;
 	moveError moveRet;
 	char *asString;
 	initializeTowerOfHanoi(&th, numberOfDisks, numberOfRods);
@@ -20,8 +20,8 @@ int main(void)
 		printf("%s", asString);
 		free(asString);
 		diskToMove = getInt("Select a disk to move");
-		rodDestination = getInt("Select a rod to move it into");
-		moveRet = moveDisk(&th, diskToMove, rodDestination);
+		targetRod = getInt("Select a rod to move it into");
+		moveRet = moveDisk(&th, diskToMove, targetRod);
 		system("clear");
 		switch (moveRet)
 		{

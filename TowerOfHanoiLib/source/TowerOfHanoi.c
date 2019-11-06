@@ -6,7 +6,7 @@
 /* ----- Functions for implementing 'moveDisk' ---- */
 unsigned findDisk(const TowerOfHanoi * const th, const unsigned disk);
 bool diskOnTopOfStack(const TowerOfHanoi * const th, const unsigned disk);
-bool overSmallerDisk(const TowerOfHanoi * const th, const unsigned disk, const unsigned rodDestination);
+bool overSmallerDisk(const TowerOfHanoi * const th, const unsigned disk, const unsigned targetRod);
 /* ---------- */
 
 void initializeTowerOfHanoi(TowerOfHanoi *const th, const unsigned numberOfDisks, const unsigned numberOfRods)
@@ -41,26 +41,26 @@ bool gameOverTowerOfHanoi(const TowerOfHanoi * const th)
 	return gameOver;
 }
 
-moveError moveDisk(TowerOfHanoi * const th, const unsigned diskToMove, const unsigned rodDestination)
+moveError moveDisk(TowerOfHanoi * const th, const unsigned diskToMove, const unsigned targetRod)
 {
 	unsigned r;
 	moveError returnCode;
 	if ( diskToMove > th->numberOfDisks)
 		returnCode = invalid_disk_error;
-	else if (rodDestination > th->numberOfRods)
+	else if (targetRod > th->numberOfRods)
 		returnCode = invalid_rod_error;
 	else if (! diskOnTopOfStack(th, diskToMove))
 		returnCode = disk_not_on_top_error;
-	else if (overSmallerDisk(th, diskToMove, rodDestination))
+	else if (overSmallerDisk(th, diskToMove, targetRod))
 		returnCode = over_smaller_disk_error;
-	else if (th->position[diskToMove][rodDestination])
+	else if (th->position[diskToMove][targetRod])
 		returnCode = no_move_done_error;
 	else
 	{
 		returnCode = valid_move;
 		for (r=0 ; r<th->numberOfRods ; ++r)
 			th->position[diskToMove][r] = false;
-		th->position[diskToMove][rodDestination] = true;
+		th->position[diskToMove][targetRod] = true;
 		th->numberOfMoves++;
 	}
 	return returnCode;
@@ -91,12 +91,12 @@ bool diskOnTopOfStack(const TowerOfHanoi * const th, const unsigned disk)
 	return isOnTop;
 }
 
-bool overSmallerDisk(const TowerOfHanoi * const th, const unsigned disk, const unsigned rodDestination)
+bool overSmallerDisk(const TowerOfHanoi * const th, const unsigned disk, const unsigned targetRod)
 {
 	unsigned d;
 	bool isThereSmaller = false;
 	for (d=0 ; d<disk ; ++d)
-		if (th->position[d][rodDestination])
+		if (th->position[d][targetRod])
 		{
 			isThereSmaller = true;
 			break;
