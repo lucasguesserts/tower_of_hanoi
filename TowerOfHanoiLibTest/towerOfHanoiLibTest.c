@@ -60,7 +60,7 @@ CuSuite* StrUtilGetSuite(void)
 void Test_initialize_tower_of_hanoi(CuTest *tc)
 {
 	/* Auxiliar variables */
-	unsigned int d, r;
+	unsigned d, r;
 	/* Initialize values */
 	bool position[NUMBER_OF_DISKS][NUMBER_OF_RODS] =
 	{
@@ -86,7 +86,7 @@ void Test_initialize_tower_of_hanoi(CuTest *tc)
 void Test_check_game_over(CuTest *tc)
 {
 	/* Auxiliar variables */
-	unsigned int d, r;
+	unsigned d, r;
 	/* Initialize finished tower of hanoi */
 	TowerOfHanoi th;
 	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
@@ -104,7 +104,7 @@ void Test_check_game_over(CuTest *tc)
 void Test_check_false_game_over(CuTest *tc)
 {
 	/* Auxiliar variables */
-	unsigned int d, r;
+	unsigned d, r;
 	/* Initialize finished tower of hanoi */
 	TowerOfHanoi th, trueOutOfPlace, falseOutOfPlace;
 	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);

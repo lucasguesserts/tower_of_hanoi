@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void moveSubTower(TowerOfHanoi * const th, const unsigned int currentRod, const unsigned int biggestDisk, const unsigned int targetRod);
+void moveSubTower(TowerOfHanoi * const th, const unsigned currentRod, const unsigned biggestDisk, const unsigned targetRod);
 void displayMessage(moveError moveRet, TowerOfHanoi * const th);
 
 int main(void)
 {
 	TowerOfHanoi th;
-	const unsigned int numberOfDisks = 3, numberOfRods = 3;
+	const unsigned numberOfDisks = 3, numberOfRods = 3;
 	char *asString;
 	initializeTowerOfHanoi(numberOfDisks, numberOfRods, &th);
 	asString = towerOfHanoi2string(&th);
@@ -20,7 +20,7 @@ int main(void)
 	return 0;
 }
 
-void moveSubTower(TowerOfHanoi * const th, const unsigned int currentRod, const unsigned int biggestDisk, const unsigned int targetRod)
+void moveSubTower(TowerOfHanoi * const th, const unsigned currentRod, const unsigned biggestDisk, const unsigned targetRod)
 {
 	moveError moveRet;
 	if (biggestDisk==0)

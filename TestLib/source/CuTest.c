@@ -251,7 +251,7 @@ CuSuite* CuSuiteNew(void)
 
 void CuSuiteDelete(CuSuite *testSuite)
 {
-        unsigned int n;
+        unsigned n;
         for (n=0; n < MAX_TEST_CASES; n++)
         {
                 if (testSuite->list[n])

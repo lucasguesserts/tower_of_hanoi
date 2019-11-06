@@ -7,8 +7,8 @@ int getInt(char message[]);
 int main(void)
 {
 	TowerOfHanoi th;
-	const unsigned int numberOfDisks = 3, numberOfRods = 3;
-	unsigned int diskToMove, rodDestination;
+	const unsigned numberOfDisks = 3, numberOfRods = 3;
+	unsigned diskToMove, rodDestination;
 	moveError moveRet;
 	char *asString;
 	initializeTowerOfHanoi(numberOfDisks, numberOfRods, &th);

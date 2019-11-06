@@ -4,14 +4,14 @@
 #include <string.h>
 
 /* ----- Functions for implementing 'moveDisk' ---- */
-unsigned int findDisk(const TowerOfHanoi * const th, const unsigned int disk);
-bool diskOnTopOfStack(const TowerOfHanoi * const th, const unsigned int disk);
-bool overSmallerDisk(const TowerOfHanoi * const th, const unsigned int disk, const unsigned int rodDestination);
+unsigned findDisk(const TowerOfHanoi * const th, const unsigned disk);
+bool diskOnTopOfStack(const TowerOfHanoi * const th, const unsigned disk);
+bool overSmallerDisk(const TowerOfHanoi * const th, const unsigned disk, const unsigned rodDestination);
 /* ---------- */
 
-void initializeTowerOfHanoi(const unsigned int numberOfDisks, const unsigned int numberOfRods, TowerOfHanoi *th)
+void initializeTowerOfHanoi(const unsigned numberOfDisks, const unsigned numberOfRods, TowerOfHanoi *th)
 {
-	unsigned int r, d;
+	unsigned r, d;
 	/*
 		Missing to check the value of
 		'numberOfDisks' and 'numberOfRods'
@@ -31,7 +31,7 @@ void initializeTowerOfHanoi(const unsigned int numberOfDisks, const unsigned int
 bool checkFinishedTowerOfHanoi(const TowerOfHanoi * const th)
 {
 	bool gameOver = true;
-	unsigned int d, r;
+	unsigned d, r;
 	for (d=0 ; d<th->numberOfDisks ; ++d)
 	{
 		for (r=0 ; r<(th->numberOfRods-1) ; ++r)
@@ -41,9 +41,9 @@ bool checkFinishedTowerOfHanoi(const TowerOfHanoi * const th)
 	return gameOver;
 }
 
-moveError moveDisk(TowerOfHanoi * const th, const unsigned int diskToMove, const unsigned int rodDestination)
+moveError moveDisk(TowerOfHanoi * const th, const unsigned diskToMove, const unsigned rodDestination)
 {
-	unsigned int r;
+	unsigned r;
 	moveError returnCode;
 	if ( diskToMove > th->numberOfDisks)
 		returnCode = invalid_disk_error;
@@ -68,18 +68,18 @@ moveError moveDisk(TowerOfHanoi * const th, const unsigned int diskToMove, const
 
 /* ----- Functions for implementing 'moveDisk' ---- */
 
-unsigned int findDisk(const TowerOfHanoi * const th, const unsigned int disk)
+unsigned findDisk(const TowerOfHanoi * const th, const unsigned disk)
 {
-	unsigned int rod;
+	unsigned rod;
 	for (rod=0 ; rod<(th->numberOfRods) ; ++rod)
 		if (th->position[disk][rod])
 			break;
 	return rod;
 }
 
-bool diskOnTopOfStack(const TowerOfHanoi * const th, const unsigned int disk)
+bool diskOnTopOfStack(const TowerOfHanoi * const th, const unsigned disk)
 {
-	unsigned int d, rod;
+	unsigned d, rod;
 	bool isOnTop = true;
 	rod = findDisk(th, disk);
 	for (d=0 ; d<disk ; ++d)
@@ -91,7 +91,7 @@ bool diskOnTopOfStack(const TowerOfHanoi * const th, const unsigned int disk)
 	return isOnTop;
 }
 
-bool overSmallerDisk(const TowerOfHanoi * const th, const unsigned int disk, const unsigned int rodDestination)
+bool overSmallerDisk(const TowerOfHanoi * const th, const unsigned disk, const unsigned rodDestination)
 {
 	unsigned d;
 	bool isThereSmaller = false;
@@ -110,7 +110,7 @@ char * towerOfHanoi2string(const TowerOfHanoi * const th)
 {
 	char *asString = NULL;
 	size_t numberOfCharacters;
-	unsigned int d, r;
+	unsigned d, r;
 	char movesAsString[5];
 	/* Allocate memory */
 	numberOfCharacters = (2*th->numberOfRods + 1) * th->numberOfDisks + 22;
