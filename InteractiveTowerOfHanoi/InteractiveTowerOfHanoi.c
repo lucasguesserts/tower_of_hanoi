@@ -11,10 +11,10 @@ int main(void)
 	unsigned diskToMove, rodDestination;
 	moveError moveRet;
 	char *asString;
-	initializeTowerOfHanoi(numberOfDisks, numberOfRods, &th);
+	initializeTowerOfHanoi(&th, numberOfDisks, numberOfRods);
 	system("clear");
 
-	while(!checkFinishedTowerOfHanoi(&th))
+	while(!gameOverTowerOfHanoi(&th))
 	{
 		asString = towerOfHanoi2string(&th);
 		printf("%s", asString);

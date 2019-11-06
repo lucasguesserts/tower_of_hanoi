@@ -11,7 +11,7 @@ typedef struct
     unsigned numberOfRods;
     unsigned numberOfDisks;
     unsigned numberOfMoves;
-    bool position[MAX_NUMBER_OF_DISKS][MAX_NUMBER_OF_RODS];
+    bool     position[MAX_NUMBER_OF_DISKS][MAX_NUMBER_OF_RODS];
 } TowerOfHanoi;
 
 typedef enum MoveError
@@ -24,9 +24,9 @@ typedef enum MoveError
     no_move_done_error
 } moveError;
 
-void initializeTowerOfHanoi(const unsigned numberOfDisks, const unsigned numberOfRods, TowerOfHanoi *th);
-bool checkFinishedTowerOfHanoi(const TowerOfHanoi * const th);
+void      initializeTowerOfHanoi(TowerOfHanoi * const th, const unsigned numberOfDisks, const unsigned numberOfRods);
+bool      gameOverTowerOfHanoi(const TowerOfHanoi * const th);
 moveError moveDisk(TowerOfHanoi * const th, const unsigned diskToMove, const unsigned rodDestination);
-char * towerOfHanoi2string(const TowerOfHanoi * const th);
+char *    towerOfHanoi2string(const TowerOfHanoi * const th);
 
 #endif /* TOWER_OF_HANOI_H */

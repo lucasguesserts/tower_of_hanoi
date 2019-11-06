@@ -72,7 +72,7 @@ void Test_initialize_tower_of_hanoi(CuTest *tc)
 	};
 	/* Initialize tower of hanoi */
 	TowerOfHanoi th;
-	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
+	initializeTowerOfHanoi(&th, NUMBER_OF_DISKS, NUMBER_OF_RODS);
 	/* Test */
 	CuAssertIntEquals(tc, NUMBER_OF_RODS,  th.numberOfRods);
 	CuAssertIntEquals(tc, NUMBER_OF_DISKS, th.numberOfDisks);
@@ -89,7 +89,7 @@ void Test_check_game_over(CuTest *tc)
 	unsigned d, r;
 	/* Initialize finished tower of hanoi */
 	TowerOfHanoi th;
-	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
+	initializeTowerOfHanoi(&th, NUMBER_OF_DISKS, NUMBER_OF_RODS);
 	for (d=0 ; d<NUMBER_OF_DISKS ; ++d)
 	{
 		for(r=0 ; r<(NUMBER_OF_RODS-1) ; ++r)
@@ -97,7 +97,7 @@ void Test_check_game_over(CuTest *tc)
 		th.position[d][NUMBER_OF_RODS-1] = true;
 	}
 	/* Test */
-	CuAssertTrue(tc, checkFinishedTowerOfHanoi(&th));
+	CuAssertTrue(tc, gameOverTowerOfHanoi(&th));
 	return;
 }
 
@@ -107,7 +107,7 @@ void Test_check_false_game_over(CuTest *tc)
 	unsigned d, r;
 	/* Initialize finished tower of hanoi */
 	TowerOfHanoi th, trueOutOfPlace, falseOutOfPlace;
-	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
+	initializeTowerOfHanoi(&th, NUMBER_OF_DISKS, NUMBER_OF_RODS);
 	for (d=0 ; d<NUMBER_OF_DISKS ; ++d)
 	{
 		for(r=0 ; r<(NUMBER_OF_RODS-1) ; ++r)
@@ -118,11 +118,11 @@ void Test_check_false_game_over(CuTest *tc)
 	/* One true out of place*/
 	trueOutOfPlace = th;
 	trueOutOfPlace.position[0][0] = true;
-	CuAssertTrue(tc, checkFinishedTowerOfHanoi(&trueOutOfPlace)==false);
+	CuAssertTrue(tc, gameOverTowerOfHanoi(&trueOutOfPlace)==false);
 	/* One false out of place*/
 	falseOutOfPlace = th;
 	falseOutOfPlace.position[2][NUMBER_OF_RODS-1] = false;
-	CuAssertTrue(tc, checkFinishedTowerOfHanoi(&falseOutOfPlace)==false);
+	CuAssertTrue(tc, gameOverTowerOfHanoi(&falseOutOfPlace)==false);
 	return;
 }
 
@@ -130,7 +130,7 @@ void Test_move_disk(CuTest *tc)
 {
 	/* Initialize tower of hanoi */
 	TowerOfHanoi th;
-	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
+	initializeTowerOfHanoi(&th, NUMBER_OF_DISKS, NUMBER_OF_RODS);
 	/* Disk 0 from rod 0 to rod 1 */
 	moveDisk(&th, 0, 1);
 	CuAssertIntEquals(tc, false, th.position[0][0]);
@@ -153,7 +153,7 @@ void Test_move_disk_errors(CuTest *tc)
 {
 	/* Initialize tower of hanoi */
 	TowerOfHanoi th;
-	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
+	initializeTowerOfHanoi(&th, NUMBER_OF_DISKS, NUMBER_OF_RODS);
 	/* Attempt to move and check errors */
 	CuAssertIntEquals(tc, valid_move,              moveDisk(&th, 0, 1));
 	CuAssertIntEquals(tc, no_move_done_error,      moveDisk(&th, 0, 1));
@@ -172,7 +172,7 @@ void Test_display_tower_of_hanoi(CuTest *tc)
 	/* Initialize tower of hanoi */
 	TowerOfHanoi th;
 	char *asString = NULL;
-	initializeTowerOfHanoi(NUMBER_OF_DISKS, NUMBER_OF_RODS, &th);
+	initializeTowerOfHanoi(&th, NUMBER_OF_DISKS, NUMBER_OF_RODS);
 	/* Check */
 	asString = towerOfHanoi2string(&th);
 	CuAssertStrEquals(tc, buffer, asString);

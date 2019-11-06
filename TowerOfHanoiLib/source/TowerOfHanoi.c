@@ -9,7 +9,7 @@ bool diskOnTopOfStack(const TowerOfHanoi * const th, const unsigned disk);
 bool overSmallerDisk(const TowerOfHanoi * const th, const unsigned disk, const unsigned rodDestination);
 /* ---------- */
 
-void initializeTowerOfHanoi(const unsigned numberOfDisks, const unsigned numberOfRods, TowerOfHanoi *th)
+void initializeTowerOfHanoi(TowerOfHanoi *const th, const unsigned numberOfDisks, const unsigned numberOfRods)
 {
 	unsigned r, d;
 	/*
@@ -28,7 +28,7 @@ void initializeTowerOfHanoi(const unsigned numberOfDisks, const unsigned numberO
 	return;
 }
 
-bool checkFinishedTowerOfHanoi(const TowerOfHanoi * const th)
+bool gameOverTowerOfHanoi(const TowerOfHanoi * const th)
 {
 	bool gameOver = true;
 	unsigned d, r;

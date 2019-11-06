@@ -10,7 +10,7 @@ int main(void)
 	TowerOfHanoi th;
 	const unsigned numberOfDisks = 3, numberOfRods = 3;
 	char *asString;
-	initializeTowerOfHanoi(numberOfDisks, numberOfRods, &th);
+	initializeTowerOfHanoi(&th, numberOfDisks, numberOfRods);
 	asString = towerOfHanoi2string(&th);
 	printf("%s", asString);
 	free(asString);
