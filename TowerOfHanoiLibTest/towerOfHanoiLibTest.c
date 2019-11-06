@@ -168,15 +168,12 @@ void Test_move_disk_errors(CuTest *tc)
 void Test_display_tower_of_hanoi(CuTest *tc)
 {
 	/* Auxiliar */
-	char buffer[] = "X - - \nX - - \nX - - \nX - - \nX - - \nnumber of moves:   0\n";
+	char buffer[] = "  0 1 2\n0 X - -\n1 X - -\n2 X - -\n3 X - -\n4 X - -\nnumber of moves:   0\n";
 	/* Initialize tower of hanoi */
 	TowerOfHanoi th;
-	char *asString = NULL;
 	initializeTowerOfHanoi(&th, NUMBER_OF_DISKS, NUMBER_OF_RODS);
 	/* Check */
-	asString = towerOfHanoi2string(&th);
-	CuAssertStrEquals(tc, buffer, asString);
-	/* Free memory */
-	free(asString);
+	towerOfHanoi2string(&th);
+	CuAssertStrEquals(tc, buffer, th.asString);
 	return;
 }

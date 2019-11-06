@@ -9,11 +9,9 @@ int main(void)
 {
 	TowerOfHanoi th;
 	const unsigned numberOfDisks = 3, numberOfRods = 3;
-	char *asString;
 	initializeTowerOfHanoi(&th, numberOfDisks, numberOfRods);
-	asString = towerOfHanoi2string(&th);
-	printf("%s", asString);
-	free(asString);
+	towerOfHanoi2string(&th);
+	printf("%s", th.asString);
 	printf("\n");
 	moveSubTower(&th, 0, numberOfDisks-1, numberOfRods-1);
 	printf("Congratulations, game finished in %i moves.\n\n", th.numberOfMoves);
@@ -40,10 +38,8 @@ void moveSubTower(TowerOfHanoi * const th, const unsigned currentRod, const unsi
 
 void displayMessage(MoveError moveRet, TowerOfHanoi * const th)
 {
-	char *asString;
-	asString = towerOfHanoi2string(th);
-	printf("%s", asString);
-	free(asString);
+	towerOfHanoi2string(th);
+	printf("%s", th->asString);
 	switch (moveRet)
 	{
 		case invalid_disk_error:

@@ -106,31 +106,44 @@ bool overSmallerDisk(const TowerOfHanoi * const th, const unsigned disk, const u
 
 /* ---------- */
 
-char * towerOfHanoi2string(const TowerOfHanoi * const th)
+void towerOfHanoi2string(TowerOfHanoi * const th)
 {
-	char *asString = NULL;
-	size_t numberOfCharacters;
+	/*
+	  0 1 2\n
+	0 X - -\n
+	1 X - -\n
+	2 X - -\n
+	number of moves: %3i\n\0
+	*/
 	unsigned d, r;
-	char movesAsString[5];
-	/* Allocate memory */
-	numberOfCharacters = (2*th->numberOfRods + 1) * th->numberOfDisks + 22;
-	asString = (char *)(malloc((numberOfCharacters + 1) * sizeof(*asString)));
-	for (d=0 ; d<numberOfCharacters + 1 ; ++d)
-		asString[d] = '\0';
-	/* String representation */
+	char buf[5];
+	/* Initialize empty */
+	for (d=0 ; d<MAX_NUMBER_OF_CHARS ; ++d)
+		th->asString[d] = '\0';
+	/* Rod's numbers */
+	strcat(th->asString, " ");
+	for (r=0 ; r<th->numberOfRods ; ++r)
+	{
+		sprintf(buf," %1i",r);
+		strcat(th->asString, buf);
+	}
+	strcat(th->asString, "\n");
+	/* Disk's row */
 	for (d=0 ; d<th->numberOfDisks ; ++d)
 	{
+		sprintf(buf,"%1i",d);
+		strcat(th->asString, buf);
 		for (r=0 ; r<th->numberOfRods ; ++r)
 		{
 			if (th->position[d][r])
-				strcat(asString, "X ");
+				strcat(th->asString, " X");
 			else
-				strcat(asString, "- ");
+				strcat(th->asString, " -");
 		}
-		strcat(asString, "\n");
+		strcat(th->asString, "\n");
 	}
-	strcat(asString, "number of moves: ");
-	sprintf(movesAsString, "%3i\n", th->numberOfMoves);
-	strcat(asString, movesAsString);
-	return asString;
+	/* Number of move's row */
+	strcat(th->asString, "number of moves: ");
+	sprintf(buf, "%3i\n", th->numberOfMoves);
+	strcat(th->asString, buf);
 }
