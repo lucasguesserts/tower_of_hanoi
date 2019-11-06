@@ -19,7 +19,6 @@ typedef enum MoveError
     valid_move,
     invalid_disk_error,
     invalid_rod_error,
-    disk_not_there_error,
     disk_not_on_top_error,
     over_smaller_disk_error,
     no_move_done_error
@@ -27,7 +26,7 @@ typedef enum MoveError
 
 void initializeTowerOfHanoi(const unsigned int numberOfDisks, const unsigned int numberOfRods, TowerOfHanoi *th);
 bool checkFinishedTowerOfHanoi(const TowerOfHanoi * const th);
-moveError moveDisk(TowerOfHanoi * const th, const unsigned int disk, const unsigned int rod);
+moveError moveDisk(TowerOfHanoi * const th, const unsigned int diskToMove, const unsigned int rodDestination);
 char * towerOfHanoi2string(const TowerOfHanoi * const th);
 
 #endif /* TOWER_OF_HANOI_H */
