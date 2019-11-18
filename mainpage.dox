@@ -27,4 +27,34 @@ at any point, the end of the game can be checked.
 All the game manipulation functions are available
 in the file @ref TowerOfHanoi.h
 
+
+@section example Example - Creating and Solving a 3-disk Game
+
+@code{.c}
+#include <TowerOfHanoi.h>
+int main(void)
+{
+    unsigned numberOfDisks, numberOfRods;
+    MoveError moveStatus; /* Unused here */
+    TowerOfHanoi th;
+
+    /* Initialization */
+    numberOfDisks = 3;
+    numberOfRods = 3;
+    initializeTowerOfHanoi(&th, numberOfDisks, numberOfRods)
+
+    /* Solve Game */
+    moveStatus = moveDisk(&th, 0, 2);
+    moveStatus = moveDisk(&th, 1, 1);
+    moveStatus = moveDisk(&th, 0, 1);
+    moveStatus = moveDisk(&th, 2, 2);
+    moveStatus = moveDisk(&th, 0, 0);
+    moveStatus = moveDisk(&th, 1, 2);
+    moveStatus = moveDisk(&th, 0, 2);
+
+    return gameOverTowerOfHanoi(&th);
+    /* 0 (true) because the game is over */
+}
+@endcode
+
 */

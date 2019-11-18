@@ -1,8 +1,8 @@
 #ifndef TOWER_OF_HANOI_H
 #define TOWER_OF_HANOI_H
 
-/** @file TowerOfHanoi.h
-  * @brief All tower of hanoi game functionalities.
+/**
+  * @file TowerOfHanoi.h
   */
 
 #include <stdbool.h>
@@ -117,7 +117,7 @@ MoveError moveDisk(TowerOfHanoi * const th, const unsigned diskToMove, const uns
 /**
  * @brief Update the string representation of the input game.
  *
- * @param th [in,out] th Tower of Hanoi structure.
+ * @param[in,out] th Tower of Hanoi structure.
  */
 void towerOfHanoi2string(TowerOfHanoi * const th);
 
