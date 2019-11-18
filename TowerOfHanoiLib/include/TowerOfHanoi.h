@@ -66,7 +66,15 @@ typedef struct
  * @brief Representation of all possible outputs of a move.
  *
  * There is a defined set of errors when attempting
- * to move a disk. All of them, including a success
+ * to move a disk, named:
+ * - **valid move**: the requested movement does not break any rule.
+ * - **invalid disk error**: the selected disk does not exist.
+ * - **invalid rod error**: the rod to where the disk has to be moved does not exist.
+ * - **disk not on top error**: the selected disk is not on the top of its rod.
+ * - **over smaller disk error**: the disk is being moved over a smaller disk.
+ * - **no move done error**: the selected disk is at the selected rod.
+ *
+ * All of them, including a success
  * move, are represented in that _enum_.
  */
 typedef enum MOVE_ERROR
