@@ -27,4 +27,5 @@ Do you want to contact the guy who wrote that code? Write an e-mail to <lucasgue
 
 ## Documentation
 
-**Under development**. It will be built using [Doxygen](http://www.doxygen.nl/).
+All versions available [in this folder](./documentation/).
+The current documentation is [available here](documentation/0.1.0.pdf).
