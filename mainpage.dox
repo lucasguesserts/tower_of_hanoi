@@ -31,7 +31,8 @@ in the file @ref TowerOfHanoi.h
 @section example Example - Creating and Solving a 3-disk Game
 
 @code{.c}
-#include <TowerOfHanoi.h>
+#include "TowerOfHanoi.h"
+
 int main(void)
 {
     unsigned numberOfDisks, numberOfRods;
@@ -55,6 +56,118 @@ int main(void)
     return gameOverTowerOfHanoi(&th);
     /* 0 (true) because the game is over */
 }
+@endcode
+
+
+@section interactive_game Interactive Game
+
+It is implemented an interactive game. After building,
+execute `build/bin/InteractiveTowerOfHanoi`.
+
+@code{.unparsed}
+  0 1 2
+0 X - -
+1 X - -
+2 X - -
+number of moves:   0
+
+Select a disk to move: 0
+
+Select a rod to move it into:
+@endcode
+
+Above is exemplified the execution of the app.
+You may insert which disk to move and to which
+rod it should be moved. The game will change its
+state depending on whether a valid move was
+inserted or not.
+
+When the game is finished, it prompts a
+congratulation message and tells you in how many
+moves you completed the game.
+
+@code{.unparsed}
+Congratulations, you have finished the game in 7 moves.
+@endcode
+
+
+@section optimized_game Optimized Algorithm
+
+There is also an app which solves the problem
+using recursion. First define a sub-tower as
+a Tower of Hanoi made of a smaller number of disks.
+Then the optimized algorithm used is as follow:
+
+- If the disk to be moved is the smallest, just move it.
+- If the disk to be moved is not the smallest:
+  -# Move the sub-tower over the selected disk to the
+     other rod.
+  -# Move the disk to the desired rod.
+  -# move the previous sub-tower onto the selected disk.
+
+With such algorithm, the problem is solved requiring to move
+the biggest disk to the last rod.
+
+The app shows in the standard output all the steps
+to solve the problem with the minimum number of moves.
+
+@code{.unparsed}
+  0 1 2
+0 X - -
+1 X - -
+2 X - -
+number of moves:   0
+
+  0 1 2
+0 - - X
+1 X - -
+2 X - -
+number of moves:   1
+
+
+  0 1 2
+0 - - X
+1 - X -
+2 X - -
+number of moves:   2
+
+
+  0 1 2
+0 - X -
+1 - X -
+2 X - -
+number of moves:   3
+
+
+  0 1 2
+0 - X -
+1 - X -
+2 - - X
+number of moves:   4
+
+
+  0 1 2
+0 X - -
+1 - X -
+2 - - X
+number of moves:   5
+
+
+  0 1 2
+0 X - -
+1 - - X
+2 - - X
+number of moves:   6
+
+
+  0 1 2
+0 - - X
+1 - - X
+2 - - X
+number of moves:   7
+
+
+Congratulations, game finished in 7 moves.
 @endcode
 
 */

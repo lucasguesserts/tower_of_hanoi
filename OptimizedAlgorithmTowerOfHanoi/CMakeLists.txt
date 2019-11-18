@@ -1,4 +1,4 @@
-project(MinimumPlaysTowerOfHanoi)
+project(OptimizedAlgorithmTowerOfHanoi)
 
 include_directories(${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/include)
 include_directories(${CMAKE_SOURCE_DIR}/TowerOfHanoiLib/include)
