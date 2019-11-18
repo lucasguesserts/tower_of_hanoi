@@ -1,21 +1,8 @@
 #ifndef TOWER_OF_HANOI_H
 #define TOWER_OF_HANOI_H
 
-/** @file
+/** @file TowerOfHanoi.h
   * @brief All tower of hanoi game functionalities.
-  *
-  * The consists of a finite set of **Rods** and **Disks**.
-  * The rods are organized in a line and each disk has a
-  * different diameter.
-  *
-  * **Start:** All the disks are organized in ascending diameter in the first rod.
-  *
-  * **Goal:** Move all the disks to the last rod.
-  *
-  * **Rules:**
-  *  -# Only one disk can be moved at a time.
-  *  -# Only the disks on top of each rod may be moved.
-  *  -# Disks cannot be placed on top of smaller disks.
   */
 
 #include <stdbool.h>
@@ -55,6 +42,7 @@
   * the member _asString_ has to be updated and can be
   * shown using, for example, _printf_ (from stdio.h).
   *
+  * @note
   * The implementation uses static allocated data.
   * Its main purpouse is to be played or watched by
   * humans so long games are not that useful.
@@ -91,9 +79,38 @@ typedef enum MOVE_ERROR
     no_move_done_error
 } MoveError;
 
-void      initializeTowerOfHanoi(TowerOfHanoi * const th, const unsigned numberOfDisks, const unsigned numberOfRods);
-bool      gameOverTowerOfHanoi(const TowerOfHanoi * const th);
+/**
+ * @brief Initialize a Tower of Hanoi with all the disks at the beginning.
+ *
+ * @param[in,out] th Tower of Hanoi structure.
+ * @param[in] numberOfDisks
+ * @param[in] numberOfRods
+ */
+void initializeTowerOfHanoi(TowerOfHanoi * const th, const unsigned numberOfDisks, const unsigned numberOfRods);
+
+/**
+ * @brief Check whether the game is over or not.
+ *
+ * @param[in] th Tower of Hanoi game to be checked.
+ * @return A bool value indicating if the game is over.
+ */
+bool gameOverTowerOfHanoi(const TowerOfHanoi * const th);
+
+/**
+ * @brief Move a disk in the game if possible. It returns the movement status.
+ *
+ * @param[in,out] th Tower of Hanoi structure.
+ * @param[in] diskToMove The number of the disk to be move.
+ * @param[in] targetRod The rod to where the disk will be moved.
+ * @return MoveError Status of the move. See @ref MoveError for more details.
+ */
 MoveError moveDisk(TowerOfHanoi * const th, const unsigned diskToMove, const unsigned targetRod);
-void      towerOfHanoi2string(TowerOfHanoi * const th);
+
+/**
+ * @brief Update the string representation of the input game.
+ *
+ * @param th [in,out] th Tower of Hanoi structure.
+ */
+void towerOfHanoi2string(TowerOfHanoi * const th);
 
 #endif /* TOWER_OF_HANOI_H */

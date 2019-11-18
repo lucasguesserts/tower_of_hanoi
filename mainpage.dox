@@ -1,8 +1,30 @@
 /**
 @mainpage Tower of Hanoi Library
 
-@section Introduction
 
-Long description is going to be placed here.
+@section game_definition Game Definition
+
+It consists of a finite set of **Rods** and **Disks**.
+The rods are organized in a line and each disk has a
+different diameter.
+
+- **Start:** All the disks are organized in ascending diameter in the first rod.
+- **Goal:** Move all the disks to the last rod.
+- **Rules:**
+  -# Only one disk can be moved at a time.
+  -# Only the disks on top of each rod may be moved.
+  -# Disks cannot be placed on top of smaller disks.
+
+
+@section how_to_use How to Use
+
+The representation of a Tower of Hanoi game is made
+by the structure @ref TowerOfHanoi. The first step is
+to create an instance of that structure and initialize
+it. After that, the movements can be executed and,
+at any point, the end of the game can be checked.
+
+All the game manipulation functions are available
+in the file @ref TowerOfHanoi.h
 
 */
