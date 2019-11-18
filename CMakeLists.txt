@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
 
 set(CMAKE_C_COMPILER "gcc")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -Wextra -ansi -pedantic -lm")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -Wextra -ansi -pedantic -fprofile-arcs -ftest-coverage -lm")
 
 set(LOG_DIR "${CMAKE_BINARY_DIR}/log/")
 file(MAKE_DIRECTORY "${LOG_DIR}")

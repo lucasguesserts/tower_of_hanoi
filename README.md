@@ -1,5 +1,7 @@
 # Tower of Hanoi
 
+[![Travis (.org) branch](https://img.shields.io/travis/lucasguesserts/tower_of_hanoi/master?label=Build%20Master)](https://travis-ci.org/lucasguesserts/tower_of_hanoi)
+
 Implementation of the Tower of Hanoi in C.
 
 ## Requirements

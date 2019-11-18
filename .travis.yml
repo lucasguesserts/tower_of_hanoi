@@ -14,4 +14,12 @@ script:
   - cmake ..
   - make
   - make test
+
+after_failure:
   - cat log/*
+
+after_success:
+  - cat log/*
+  - cd ..
+  - ./code_coverage.sh
+  - cat code_coverage_result.log
