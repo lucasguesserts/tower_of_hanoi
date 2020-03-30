@@ -14,9 +14,11 @@
 
 # Tower of Hanoi
 
-[![Travis (.org) branch](https://img.shields.io/travis/lucasguesserts/tower_of_hanoi/master?label=Build%20Master)](https://travis-ci.org/lucasguesserts/tower_of_hanoi) [![Documentation](https://codedocs.xyz/lucasguesserts/tower_of_hanoi.svg)](https://codedocs.xyz/lucasguesserts/tower_of_hanoi/) 
+[![Travis (.org) branch](https://img.shields.io/travis/lucasguesserts/tower_of_hanoi/master?label=Build%20Master)](https://travis-ci.org/lucasguesserts/tower_of_hanoi)
+[![Documentation](https://codedocs.xyz/lucasguesserts/tower_of_hanoi.svg)](https://codedocs.xyz/lucasguesserts/tower_of_hanoi/)
+![codecoverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 
-Implementation of the Tower of Hanoi in C.
+Implementation of the [Tower of Hanoi](http://www.towerofhanoi.org/) game in C.
 
 # Game Definition
 
@@ -30,6 +32,22 @@ different diameter.
   1. Only one disk can be moved at a time.
   2. Only the disks on top of each rod may be moved.
   3. Disks cannot be placed on top of smaller disks.
+
+# Building
+
+```shell
+git clone git@github.com:lucasguesserts/tower_of_hanoi.git
+mkdir build
+cd build
+cmake ..
+make
+
+# Choose an app to run
+./bin/InteractiveTowerOfHanoi
+./OptimizedAlgorithmTowerOfHanoi
+```
+
+
 
 # How to Use
 
@@ -105,92 +123,8 @@ moves you completed the game.
 Congratulations, you have finished the game in 7 moves.
 ```
 
-## Optimized Algorithm
-
-There is also an application which solves the problem
-using recursion. First define a sub-tower as
-a Tower of Hanoi made of a smaller number of disks.
-Then the optimized algorithm used is as follow:
-
-- If the disk to be moved is the smallest, just move it.
-- If the disk to be moved is not the smallest:
-  1. Move the sub-tower over the selected disk to the
-     other rod.
-  1. Move the disk to the desired rod.
-  1. move the previous sub-tower onto the selected disk.
-
-With such algorithm, the problem is solved requiring to move
-the biggest disk to the last rod.
-
-The app shows in the standard output all the steps
-to solve the problem with the minimum number of moves.
-
-```
-  0 1 2
-0 X - -
-1 X - -
-2 X - -
-number of moves:   0
-
-  0 1 2
-0 - - X
-1 X - -
-2 X - -
-number of moves:   1
-
-
-  0 1 2
-0 - - X
-1 - X -
-2 X - -
-number of moves:   2
-
-
-  0 1 2
-0 - X -
-1 - X -
-2 X - -
-number of moves:   3
-
-
-  0 1 2
-0 - X -
-1 - X -
-2 - - X
-number of moves:   4
-
-
-  0 1 2
-0 X - -
-1 - X -
-2 - - X
-number of moves:   5
-
-
-  0 1 2
-0 X - -
-1 - - X
-2 - - X
-number of moves:   6
-
-
-  0 1 2
-0 - - X
-1 - - X
-2 - - X
-number of moves:   7
-
-
-Congratulations, game finished in 7 moves.
-```
-
 # Documentation
 
-[Here](https://codedocs.xyz/lucasguesserts/tower_of_hanoi/index.html) you can find the full documentation of the project.
+All the information about the project is available in its documentation. The documentation of the latest version is available online in [html](https://codedocs.xyz/lucasguesserts/tower_of_hanoi/index.html) and [pdf](./doc/pdf_releases/latest.pdf) formats.
 
-# About
-
-- [Changelog](./doc/CHANGELOG.md)
-- [Contact](./doc/CONTACT.md)
-- [Contributing](./doc/CONTRIBUTING.md)
-- [Requirements](./doc/REQUIREMENTS.md)
+Older releases have their documentation available only in the pdf format in [this folder](./doc/pdf_releases/).
