@@ -4,8 +4,9 @@
 
 Implementation of the Tower of Hanoi in C.
 
+[TOC]
 
-## Game Definition {#game_definition}
+# Game Definition
 
 It consists of a finite set of **Rods** and **Disks**.
 The rods are organized in a line and each disk has a
@@ -18,7 +19,7 @@ different diameter.
   2. Only the disks on top of each rod may be moved.
   3. Disks cannot be placed on top of smaller disks.
 
-## How to Use {#how_to_use}
+# How to Use
 
 The representation of a Tower of Hanoi game is made
 by the structure [TowerOfHanoi](@ref TowerOfHanoi). The first step is
@@ -29,7 +30,7 @@ at any point, the end of the game can be checked.
 All the game manipulation functions are available
 in the file [TowerOfHanoi.h](@ref TowerOfHanoi.h).
 
-## Example - Creating and Solving a 3-disk Game {#introductory_example}
+## Example - Creating and Solving a 3-disk Game
 
 ```c
 #include "TowerOfHanoi.h"
@@ -59,7 +60,7 @@ int main(void)
 }
 ```
 
-## Interactive Game {#introductory_interactive_game}
+## Interactive Game
 
 It is implemented an interactive game. After building,
 execute `build/bin/InteractiveTowerOfHanoi`.
@@ -90,19 +91,19 @@ moves you completed the game.
 Congratulations, you have finished the game in 7 moves.
 ```
 
-## Optimized Algorithm {#optimized_game}
+## Optimized Algorithm
 
-There is also an app which solves the problem
+There is also an application which solves the problem
 using recursion. First define a sub-tower as
 a Tower of Hanoi made of a smaller number of disks.
 Then the optimized algorithm used is as follow:
 
 - If the disk to be moved is the smallest, just move it.
 - If the disk to be moved is not the smallest:
-  -# Move the sub-tower over the selected disk to the
+  1. Move the sub-tower over the selected disk to the
      other rod.
-  -# Move the disk to the desired rod.
-  -# move the previous sub-tower onto the selected disk.
+  1. Move the disk to the desired rod.
+  1. move the previous sub-tower onto the selected disk.
 
 With such algorithm, the problem is solved requiring to move
 the biggest disk to the last rod.
@@ -168,3 +169,11 @@ number of moves:   7
 
 Congratulations, game finished in 7 moves.
 ```
+
+# About
+
+- [Changelog](@ref changelog)
+- [Contact](@ref contact)
+- [Contributing](@ref contributing)
+- [Documentation](@ref documentation)
+- [Requirements](@ref requirements)
