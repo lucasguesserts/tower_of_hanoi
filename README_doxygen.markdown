@@ -1,22 +1,8 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [Tower of Hanoi](#tower-of-hanoi)
-- [Game Definition](#game-definition)
-- [How to Use](#how-to-use)
-  - [Example - Creating and Solving a 3-disk Game](#example---creating-and-solving-a-3-disk-game)
-  - [Interactive Game](#interactive-game)
-  - [Optimized Algorithm](#optimized-algorithm)
-- [About](#about)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# Tower of Hanoi
-
-[![Travis (.org) branch](https://img.shields.io/travis/lucasguesserts/tower_of_hanoi/master?label=Build%20Master)](https://travis-ci.org/lucasguesserts/tower_of_hanoi) [![Documentation](https://codedocs.xyz/lucasguesserts/tower_of_hanoi.svg)](https://codedocs.xyz/lucasguesserts/tower_of_hanoi/) 
+# Tower of Hanoi {#mainpage}
 
 Implementation of the Tower of Hanoi in C.
+
+[TOC]
 
 # Game Definition
 
@@ -34,15 +20,13 @@ different diameter.
 # How to Use
 
 The representation of a Tower of Hanoi game is made
-by the structure [TowerOfHanoi](./TowerOfHanoiLib/include/TowerOfHanoi.h).
-The first step is
+by the structure [TowerOfHanoi](@ref TowerOfHanoi). The first step is
 to create an instance of that structure and initialize
 it. After that, the movements can be executed and,
 at any point, the end of the game can be checked.
 
 All the game manipulation functions are available
-in the file
-[TowerOfHanoi.h](./TowerOfHanoiLib/include/TowerOfHanoi.h).
+in the file [TowerOfHanoi.h](@ref TowerOfHanoi.h).
 
 ## Example - Creating and Solving a 3-disk Game
 
@@ -184,14 +168,10 @@ number of moves:   7
 Congratulations, game finished in 7 moves.
 ```
 
-# Documentation
-
-[Here](https://codedocs.xyz/lucasguesserts/tower_of_hanoi/index.html) you can find the full documentation of the project.
-
 # About
 
-- [Changelog](./about/CHANGELOG.markdown)
-- [Contact](./about/CONTACT.markdown)
-- [Contributing](./about/CONTRIBUTING.markdown)
-- [Documentation](./about/DOCUMENTATION.markdown)
-- [Requirements](./about/REQUIREMENTS.markdown)
+- [Changelog](@ref changelog)
+- [Contact](@ref contact)
+- [Contributing](@ref contributing)
+- [Documentation](@ref documentation)
+- [Requirements](@ref requirements)
