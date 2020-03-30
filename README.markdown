@@ -1,8 +1,11 @@
-/**
-@mainpage Tower of Hanoi Library
+# Tower of Hanoi {#mainpage}
+
+[![Travis (.org) branch](https://img.shields.io/travis/lucasguesserts/tower_of_hanoi/master?label=Build%20Master)](https://travis-ci.org/lucasguesserts/tower_of_hanoi) [![Documentation](https://codedocs.xyz/lucasguesserts/tower_of_hanoi.svg)](https://codedocs.xyz/lucasguesserts/tower_of_hanoi/) 
+
+Implementation of the Tower of Hanoi in C.
 
 
-@section game_definition Game Definition
+## Game Definition {#game_definition}
 
 It consists of a finite set of **Rods** and **Disks**.
 The rods are organized in a line and each disk has a
@@ -11,26 +14,24 @@ different diameter.
 - **Start:** All the disks are organized in ascending diameter in the first rod.
 - **Goal:** Move all the disks to the last rod.
 - **Rules:**
-  -# Only one disk can be moved at a time.
-  -# Only the disks on top of each rod may be moved.
-  -# Disks cannot be placed on top of smaller disks.
+  1. Only one disk can be moved at a time.
+  2. Only the disks on top of each rod may be moved.
+  3. Disks cannot be placed on top of smaller disks.
 
-
-@section how_to_use How to Use
+## How to Use {#how_to_use}
 
 The representation of a Tower of Hanoi game is made
-by the structure @ref TowerOfHanoi. The first step is
+by the structure [TowerOfHanoi](@ref TowerOfHanoi). The first step is
 to create an instance of that structure and initialize
 it. After that, the movements can be executed and,
 at any point, the end of the game can be checked.
 
 All the game manipulation functions are available
-in the file @ref TowerOfHanoi.h
+in the file [TowerOfHanoi.h](@ref TowerOfHanoi.h).
 
+## Example - Creating and Solving a 3-disk Game {#introductory_example}
 
-@section example Example - Creating and Solving a 3-disk Game
-
-@code{.c}
+```c
 #include "TowerOfHanoi.h"
 
 int main(void)
@@ -56,15 +57,14 @@ int main(void)
     return gameOverTowerOfHanoi(&th);
     /* 0 (true) because the game is over */
 }
-@endcode
+```
 
-
-@section interactive_game Interactive Game
+## Interactive Game {#introductory_interactive_game}
 
 It is implemented an interactive game. After building,
 execute `build/bin/InteractiveTowerOfHanoi`.
 
-@code{.unparsed}
+```
   0 1 2
 0 X - -
 1 X - -
@@ -74,7 +74,7 @@ number of moves:   0
 Select a disk to move: 0
 
 Select a rod to move it into:
-@endcode
+```
 
 Above is exemplified the execution of the app.
 You may insert which disk to move and to which
@@ -86,12 +86,11 @@ When the game is finished, it prompts a
 congratulation message and tells you in how many
 moves you completed the game.
 
-@code{.unparsed}
+```
 Congratulations, you have finished the game in 7 moves.
-@endcode
+```
 
-
-@section optimized_game Optimized Algorithm
+## Optimized Algorithm {#optimized_game}
 
 There is also an app which solves the problem
 using recursion. First define a sub-tower as
@@ -111,7 +110,7 @@ the biggest disk to the last rod.
 The app shows in the standard output all the steps
 to solve the problem with the minimum number of moves.
 
-@code{.unparsed}
+```
   0 1 2
 0 X - -
 1 X - -
@@ -168,6 +167,4 @@ number of moves:   7
 
 
 Congratulations, game finished in 7 moves.
-@endcode
-
-*/
+```

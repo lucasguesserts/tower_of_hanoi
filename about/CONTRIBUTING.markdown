@@ -1,4 +1,4 @@
-# Contributing
+# Contributing {#contributing}
 
 Thanks for considering contributing.
 
