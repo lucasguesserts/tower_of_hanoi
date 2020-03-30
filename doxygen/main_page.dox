@@ -1,10 +1,12 @@
-# Tower of Hanoi {#mainpage}
+/**
+
+@mainpage Tower of Hanoi
 
 Implementation of the Tower of Hanoi in C.
 
-[TOC]
+@tableofcontents
 
-# Game Definition
+@section main_page_game_definition Game Definition
 
 It consists of a finite set of **Rods** and **Disks**.
 The rods are organized in a line and each disk has a
@@ -17,7 +19,7 @@ different diameter.
   2. Only the disks on top of each rod may be moved.
   3. Disks cannot be placed on top of smaller disks.
 
-# How to Use
+@section main_page_how_to_use How to Use
 
 The representation of a Tower of Hanoi game is made
 by the structure [TowerOfHanoi](@ref TowerOfHanoi). The first step is
@@ -28,9 +30,9 @@ at any point, the end of the game can be checked.
 All the game manipulation functions are available
 in the file [TowerOfHanoi.h](@ref TowerOfHanoi.h).
 
-## Example - Creating and Solving a 3-disk Game
+@subsection main_page_example_3_disks_game Creating and Solving a 3-disk Game
 
-```c
+@code{.c}
 #include "TowerOfHanoi.h"
 
 int main(void)
@@ -56,14 +58,14 @@ int main(void)
     return gameOverTowerOfHanoi(&th);
     /* 0 (true) because the game is over */
 }
-```
+@endcode
 
-## Interactive Game
+@subsection main_page_example_interactive_game Interactive Game
 
 It is implemented an interactive game. After building,
 execute `build/bin/InteractiveTowerOfHanoi`.
 
-```
+@code{.unparsed}
   0 1 2
 0 X - -
 1 X - -
@@ -73,7 +75,7 @@ number of moves:   0
 Select a disk to move: 0
 
 Select a rod to move it into:
-```
+@endcode
 
 Above is exemplified the execution of the app.
 You may insert which disk to move and to which
@@ -85,11 +87,11 @@ When the game is finished, it prompts a
 congratulation message and tells you in how many
 moves you completed the game.
 
-```
+@code{.unparsed}
 Congratulations, you have finished the game in 7 moves.
-```
+@endcode
 
-## Optimized Algorithm
+@subsection main_page_example_optimized_algorithm Optimized Algorithm
 
 There is also an application which solves the problem
 using recursion. First define a sub-tower as
@@ -109,7 +111,7 @@ the biggest disk to the last rod.
 The app shows in the standard output all the steps
 to solve the problem with the minimum number of moves.
 
-```
+@code{.unparsed}
   0 1 2
 0 X - -
 1 X - -
@@ -166,12 +168,14 @@ number of moves:   7
 
 
 Congratulations, game finished in 7 moves.
-```
+@endcode
 
-# About
+@section main_page_about About
 
 - [Changelog](@ref changelog)
 - [Contact](@ref contact)
 - [Contributing](@ref contributing)
 - [Documentation](@ref documentation)
 - [Requirements](@ref requirements)
+
+*/
