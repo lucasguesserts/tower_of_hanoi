@@ -190,8 +190,7 @@ Congratulations, game finished in 7 moves.
 
 # About
 
-- [Changelog](./about/CHANGELOG.markdown)
-- [Contact](./about/CONTACT.markdown)
-- [Contributing](./about/CONTRIBUTING.markdown)
-- [Documentation](./about/DOCUMENTATION.markdown)
-- [Requirements](./about/REQUIREMENTS.markdown)
+- [Changelog](./doc/CHANGELOG.md)
+- [Contact](./doc/CONTACT.md)
+- [Contributing](./doc/CONTRIBUTING.md)
+- [Requirements](./doc/REQUIREMENTS.md)
