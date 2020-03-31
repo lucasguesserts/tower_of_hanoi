@@ -1,0 +1,35 @@
+/**
+
+@page changelog Changelog
+
+@brief 
+All notable changes to this project are documented in this file.
+
+@details
+The format is based on 
+[Keep a Changelog](http://keepachangelog.com/en/1.0.0/),
+and this project adheres to the
+[Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+@section unreleased Unreleased
+
+- [codedocs](http://codedocs.xyz/) page hosting the
+  [documentation of the project](https://codedocs.xyz/lucasguesserts/tower_of_hanoi/index.html).
+
+@section v0_1_0 Release 0.1.0 (2019-11-18)
+
+@subsection v0_1_0_added Added
+
+- TestLib based on the [CuTest](http://cutest.sourceforge.net/).
+- TowerOfHanoi structure and basic tools for manipulating it.
+- Interactive Tower of Hanoi app.
+- Optimized Algorithm app which shows how to solve the game within the minimum number of moves.
+- [CMake](http://cmake.org/) support for building and testing.
+- README.md file introducing the project.
+- CHANGELOG.md file according to [keepachangelog](http://keepachangelog.com/en/1.0.0/).
+- CONTRIBUTING.md file with general instructions.
+- LICENSE file (MIT).
+- [Travis CI](http://travis-ci.org) support for remote building and testing.
+- Documentation using [Doxygen](http://doxygen.nl/).
+
+*/
